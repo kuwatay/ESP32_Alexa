@@ -103,6 +103,8 @@ static void http_get_task(void *pvParameters)
     callbacks.on_headers_complete = on_headers_complete_cb;
     callbacks.on_message_complete = on_message_complete_cb;
 
+    vTaskDelay(500);  // J.N Hack
+    
     // blocks until end of stream
     int result = http_client_get(radio_conf->url, &callbacks,
             radio_conf->player_config);
